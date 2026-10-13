@@ -3,8 +3,22 @@
   "displayName": "Git Submodule Update",
   "description": "Adds buttons to the Source Control view for git submodule update (--init and --remote).",
   "version": "1.0.0",
-  "publisher": "local",
+  "publisher": "at-besa",
   "license": "GPL-3.0-only",
+  "categories": [
+    "SCM Providers",
+    "Other"
+  ],
+  "keywords": [
+    "git",
+    "submodule",
+    "submodules",
+    "scm",
+    "source control",
+    "update",
+    "init",
+    "recursive"
+  ],
   "engines": {
     "vscode": "^1.80.0"
   },
