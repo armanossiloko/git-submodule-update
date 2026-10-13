@@ -7,6 +7,10 @@ VS Code extension that adds two buttons to the **Source Control** view title bar
 | Clone icon | `Git: Submodules Init` | `git submodule update --init --recursive` |
 | Cloud icon | `Git: Submodules Remote` | `git submodule update --remote --recursive` |
 
+![Submodules Init button](docs/submodules-init.png)
+
+![Submodules Remote button](docs/submodules-remote.png)
+
 Both commands are also available from the Command Palette. The command runs in the root of the repository the button belongs to (falls back to the first workspace folder), shows progress in the Source Control view and reports success or the git error as a notification.
 
 ## Requirements
