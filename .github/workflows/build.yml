@@ -44,4 +44,5 @@ jobs:
       - name: Semantic release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VSCE_PAT: ${{ secrets.VSCE_PAT }}
         run: npx --no-install semantic-release

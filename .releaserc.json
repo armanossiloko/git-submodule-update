@@ -1,21 +1,50 @@
 {
-  "branches": ["main"],
+  "branches": [
+    "main"
+  ],
   "plugins": [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
-    ["@semantic-release/changelog", { "changelogFile": "CHANGELOG.md" }],
-    ["@semantic-release/npm", { "npmPublish": false }],
+    [
+      "@semantic-release/changelog",
+      {
+        "changelogFile": "CHANGELOG.md"
+      }
+    ],
+    [
+      "@semantic-release/npm",
+      {
+        "npmPublish": false
+      }
+    ],
     [
       "@semantic-release/exec",
-      { "prepareCmd": "npx --no-install vsce package --no-dependencies --out git-submodule-update-${nextRelease.version}.vsix" }
+      {
+        "prepareCmd": "npx --no-install vsce package --no-dependencies --out git-submodule-update-${nextRelease.version}.vsix",
+        "publishCmd": "npx --no-install vsce publish --no-dependencies --packagePath git-submodule-update-${nextRelease.version}.vsix"
+      }
     ],
     [
       "@semantic-release/git",
       {
-        "assets": ["CHANGELOG.md", "package.json", "package-lock.json"],
+        "assets": [
+          "CHANGELOG.md",
+          "package.json",
+          "package-lock.json"
+        ],
         "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
       }
     ],
-    ["@semantic-release/github", { "assets": [{ "path": "*.vsix", "label": "VSIX package" }] }]
+    [
+      "@semantic-release/github",
+      {
+        "assets": [
+          {
+            "path": "*.vsix",
+            "label": "VSIX package"
+          }
+        ]
+      }
+    ]
   ]
 }
