@@ -1,0 +1,61 @@
+{
+  "name": "git-submodule-update",
+  "displayName": "Git Submodule Update",
+  "description": "Adds buttons to the Source Control view for git submodule update (--init and --remote).",
+  "version": "0.0.2",
+  "publisher": "local",
+  "license": "GPL-3.0-only",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "main": "./extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "submoduleUpdate.init",
+        "title": "Git: Submodules Init (update --init --recursive)",
+        "icon": "$(repo-clone)"
+      },
+      {
+        "command": "submoduleUpdate.remote",
+        "title": "Git: Submodules Remote (update --remote --recursive)",
+        "icon": "$(cloud-download)"
+      }
+    ],
+    "menus": {
+      "scm/title": [
+        {
+          "command": "submoduleUpdate.init",
+          "when": "scmProvider == git",
+          "group": "navigation"
+        },
+        {
+          "command": "submoduleUpdate.remote",
+          "when": "scmProvider == git",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/at-besa/git-submodule-update.git"
+  },
+  "bugs": {
+    "url": "https://github.com/at-besa/git-submodule-update/issues"
+  },
+  "homepage": "https://github.com/at-besa/git-submodule-update#readme",
+  "scripts": {
+    "package": "vsce package --no-dependencies"
+  },
+  "devDependencies": {
+    "@semantic-release/changelog": "^7.0.0",
+    "@semantic-release/exec": "^7.1.0",
+    "@semantic-release/git": "^11.0.1",
+    "@vscode/vsce": "^4.0.0",
+    "semantic-release": "^25.0.9"
+  }
+}
