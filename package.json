@@ -1,7 +1,7 @@
 {
   "name": "git-submodule-update",
   "displayName": "Git Submodule Update",
-  "description": "Adds buttons to the Source Control view for git submodule update (--init and --remote).",
+  "description": "Adds Source Control toolbar buttons and a Submodules submenu for git submodule update (--init and --remote).",
   "version": "1.1.0",
   "publisher": "at-besa",
   "icon": "images/icon.png",
@@ -51,9 +51,30 @@
           "command": "submoduleUpdate.remote",
           "when": "scmProvider == git",
           "group": "navigation"
+        },
+        {
+          "submenu": "submoduleUpdate.submenu",
+          "when": "scmProvider == git",
+          "group": "2_main@9"
+        }
+      ],
+      "submoduleUpdate.submenu": [
+        {
+          "command": "submoduleUpdate.init",
+          "group": "1_update@1"
+        },
+        {
+          "command": "submoduleUpdate.remote",
+          "group": "1_update@2"
         }
       ]
-    }
+    },
+    "submenus": [
+      {
+        "id": "submoduleUpdate.submenu",
+        "label": "Submodules"
+      }
+    ]
   },
   "repository": {
     "type": "git",
