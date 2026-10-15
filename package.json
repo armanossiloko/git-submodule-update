@@ -1,7 +1,7 @@
 {
   "name": "git-submodule-update",
   "displayName": "Git Submodule Update",
-  "description": "Adds Source Control toolbar buttons and a Submodules submenu for git submodule update (--init and --remote).",
+  "description": "Adds Source Control toolbar buttons and a Submodules submenu for git submodule update (--init/--remote), including per-submodule selection.",
   "version": "1.1.0",
   "publisher": "at-besa",
   "icon": "images/icon.png",
@@ -31,12 +31,22 @@
     "commands": [
       {
         "command": "submoduleUpdate.init",
-        "title": "Git: Submodules Init (update --init --recursive)",
+        "title": "Git: Submodules Init All (update --init --recursive)",
         "icon": "$(repo-clone)"
       },
       {
         "command": "submoduleUpdate.remote",
-        "title": "Git: Submodules Remote (update --remote --recursive)",
+        "title": "Git: Submodules Remote All (update --remote --recursive)",
+        "icon": "$(cloud-download)"
+      },
+      {
+        "command": "submoduleUpdate.initSelected",
+        "title": "Git: Submodules Init Selected…",
+        "icon": "$(repo-clone)"
+      },
+      {
+        "command": "submoduleUpdate.remoteSelected",
+        "title": "Git: Submodules Remote Selected…",
         "icon": "$(cloud-download)"
       }
     ],
@@ -66,6 +76,14 @@
         {
           "command": "submoduleUpdate.remote",
           "group": "1_update@2"
+        },
+        {
+          "command": "submoduleUpdate.initSelected",
+          "group": "2_select@1"
+        },
+        {
+          "command": "submoduleUpdate.remoteSelected",
+          "group": "2_select@2"
         }
       ]
     },

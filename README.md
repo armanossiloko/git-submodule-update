@@ -4,14 +4,16 @@ VS Code extension that adds git submodule update actions to the **Source Control
 
 | Action | Command | Runs |
 | --- | --- | --- |
-| Clone icon / menu item | `Git: Submodules Init` | `git submodule update --init --recursive` |
-| Cloud icon / menu item | `Git: Submodules Remote` | `git submodule update --remote --recursive` |
+| Clone icon / menu item | `Git: Submodules Init All` | `git submodule update --init --recursive` |
+| Cloud icon / menu item | `Git: Submodules Remote All` | `git submodule update --remote --recursive` |
+| Menu / Command Palette | `Git: Submodules Init Selected…` | same as Init, for chosen submodule path(s) |
+| Menu / Command Palette | `Git: Submodules Remote Selected…` | same as Remote, for chosen submodule path(s) |
 
 ![Submodules Init button](docs/submodules-init.png)
 
 ![Submodules Remote button](docs/submodules-remote.png)
 
-Open **Source Control → … → Submodules** to run the same commands from the menu. Both are also available from the Command Palette. Each command runs in the root of the repository the action belongs to (falls back to the first workspace folder), shows progress in the Source Control view, and reports success or the git error as a notification.
+Open **Source Control → … → Submodules** for all-submodule actions or **Init Selected…** / **Remote Selected…** to pick one or more submodules (multi-select Quick Pick). All commands are also available from the Command Palette. Each command runs in the root of the repository the action belongs to (falls back to the first workspace folder), shows progress in the Source Control view, and reports success or the git error as a notification.
 
 ## Requirements
 
