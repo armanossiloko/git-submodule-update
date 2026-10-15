@@ -1,9 +1,9 @@
 {
   "name": "git-submodule-update",
   "displayName": "Git Submodule Update",
-  "description": "Adds buttons to the Source Control view for git submodule update (--init and --remote).",
+  "description": "Adds Source Control toolbar buttons and a Submodules submenu for git submodule update (--init and --remote).",
   "version": "1.1.0",
-  "publisher": "at-besa",
+  "publisher": "armanossiloko",
   "icon": "images/icon.png",
   "license": "GPL-3.0-only",
   "categories": [
@@ -40,6 +40,12 @@
         "icon": "$(cloud-download)"
       }
     ],
+    "submenus": [
+      {
+        "id": "submoduleUpdate.submenu",
+        "label": "Submodules"
+      }
+    ],
     "menus": {
       "scm/title": [
         {
@@ -51,18 +57,33 @@
           "command": "submoduleUpdate.remote",
           "when": "scmProvider == git",
           "group": "navigation"
+        },
+        {
+          "submenu": "submoduleUpdate.submenu",
+          "when": "scmProvider == git",
+          "group": "2_main@9"
+        }
+      ],
+      "submoduleUpdate.submenu": [
+        {
+          "command": "submoduleUpdate.init",
+          "group": "1_update@1"
+        },
+        {
+          "command": "submoduleUpdate.remote",
+          "group": "1_update@2"
         }
       ]
     }
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/at-besa/git-submodule-update.git"
+    "url": "https://github.com/armanossiloko/git-submodule-update.git"
   },
   "bugs": {
-    "url": "https://github.com/at-besa/git-submodule-update/issues"
+    "url": "https://github.com/armanossiloko/git-submodule-update/issues"
   },
-  "homepage": "https://github.com/at-besa/git-submodule-update#readme",
+  "homepage": "https://github.com/armanossiloko/git-submodule-update#readme",
   "scripts": {
     "package": "vsce package --no-dependencies"
   },
